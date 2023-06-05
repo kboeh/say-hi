@@ -1,22 +1,19 @@
-import { addComment } from "@/lib/mongo/products"
+import { addComment } from "@/lib/mongo/products";
 
 // export const dynamic = 'force-dynamic'
 
 export default function newComment () {
   async function createComment (formData) {
     "use server"
-    const name = formData.get('name')
-    // console.log(name)
-    const location = formData.get('location')
-    // console.log(location)
-    const comment = formData.get('comment')
-    // console.log(comment)
+    const name = formData.get('name');
+    const location = formData.get('location');
+    const comment = formData.get('comment');
     await addComment({
       name: name, 
       location: location, 
       comment: comment
     })
-  }
+  };
 
   return (
       <main>
