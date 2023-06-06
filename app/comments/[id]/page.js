@@ -1,8 +1,11 @@
-// import { addComment } from "@/lib/mongo/products";
+import { getComment } from "@/lib/mongo/products";
 
 // export const dynamic = 'force-dynamic'
 
-export default function comment ({ params }) {
+export default async function comment ({ params }) {
+
+  const comment = await getComment(params.id);
+  console.log(comment)
 //   async function createComment (formData) {
 //     "use server"
 //     const name = formData.get('name');
@@ -17,7 +20,7 @@ export default function comment ({ params }) {
 
   return (
       <main>
-        <h1 className="	text-decoration-line: underline">{ params.id}</h1>
+        <h1 className="	text-decoration-line: underline">{ comment[0].name }</h1>
       </main>
     )
 }
