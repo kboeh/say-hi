@@ -1,4 +1,5 @@
 import { addComment } from "@/lib/mongo/products";
+import { redirect } from 'next/navigation'
 
 // export const dynamic = 'force-dynamic'
 
@@ -13,6 +14,7 @@ export default function newComment () {
       location: location, 
       comment: comment
     })
+    redirect('/comments')
   };
 
   return (
