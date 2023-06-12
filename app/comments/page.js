@@ -4,16 +4,6 @@ import { getComments } from "@/lib/mongo/products";
 
 const Page = async () => {
     const { comments } = await getComments();
-    
-    // const {category} = req.query;
-    
-    // if(category) {
-    //     const products = await Product.find({category});
-    //     res.json(products);
-    // } else {
-    //     const products = await Product.find({});
-    //     res.json(products);
-    // }
 
     return (
         <main>

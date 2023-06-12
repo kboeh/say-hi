@@ -36,24 +36,3 @@ export default function newComment () {
       </main>
     )
 }
-// export default function newComment () {
-
-//   return (
-//       <main>
-//         <h1 className="	text-decoration-line: underline">Comment</h1>
-//         <form action="http://localhost:5000/comments" method='post'>
-//           <label htmlFor="name">Name:</label>
-//           <input type="text" name='name' placeholder='your name'></input> 
-//           <br />
-//           <label htmlFor="location">Location:</label>
-//           <input type="text" name='location' placeholder='your local'></input>
-//           <br />
-//           <label htmlFor='comment'>Comment:</label>
-//           <br />
-//           <textarea name='comment' placeholder='say what?'></textarea>
-//           <br />
-//           <button>Submit</button>   
-//         </form>
-//       </main>
-//     )
-// }
