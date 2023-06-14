@@ -1,11 +1,11 @@
 import { getComment } from "@/lib/mongo/products";
 import { updateComment } from "@/lib/mongo/products";
 import { deleteComment } from "@/lib/mongo/products";
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 // export const dynamic = 'force-dynamic'
 
-export default async function comment ({ params }) {
+export default async function CommentPage ({ params }) {
   const comment = await getComment(params.id);
   
 
@@ -13,13 +13,13 @@ export default async function comment ({ params }) {
     "use server"
     const formData = Object.fromEntries(form);
     await updateComment(params.id, formData);
-    redirect('/comments')
+    redirect('/comments');
   }
 
   async function deleteButton () {
     "use server"
-    await deleteComment(params.id)
-    redirect('/comments')
+    await deleteComment(params.id);
+    redirect('/comments');
   }
 
   return (
@@ -40,6 +40,7 @@ export default async function comment ({ params }) {
         <form action={ deleteButton }>
          <button>Delete</button> 
         </form>
+        <a href="/comments">Back to Comments</a>
       </main>
     )
 }

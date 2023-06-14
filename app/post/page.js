@@ -1,9 +1,9 @@
 import { addComment } from "@/lib/mongo/products";
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 // export const dynamic = 'force-dynamic'
 
-export default function newComment () {
+export default function NewComment () {
   async function createComment (formData) {
     "use server"
     const name = formData.get('name');
@@ -14,7 +14,7 @@ export default function newComment () {
       location: location, 
       comment: comment
     })
-    redirect('/comments')
+    redirect('/comments');
   };
 
   return (
@@ -33,6 +33,7 @@ export default function newComment () {
           <br />
           <button>Submit</button>   
         </form>
+        <a href="/comments">Back to Comments</a>
       </main>
     )
 }
