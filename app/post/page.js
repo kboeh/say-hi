@@ -18,22 +18,22 @@ export default function NewComment () {
   };
 
   return (
-      <main>
-        <h1 className="	text-decoration-line: underline">Comment</h1>
-        <form action={createComment}>
-          <label htmlFor="name">Name:</label>
-          <input type="text" name='name' placeholder='your name'></input> 
-          <br />
-          <label htmlFor="location">Location:</label>
-          <input type="text" name='location' placeholder='your local'></input>
-          <br />
-          <label htmlFor='comment'>Comment:</label>
-          <br />
-          <textarea name='comment' placeholder='say what?'></textarea>
-          <br />
-          <button>Submit</button>   
-        </form>
-        <a href="/comments">Back to Comments</a>
-      </main>
-    )
+    <main>
+      <h1 className="	text-decoration-line: underline">Comment</h1>
+      <form action={createComment}>
+        <label htmlFor="name">Name:</label>
+        <input type="text" name='name' placeholder='your name'></input> 
+        <br />
+        <label htmlFor="location">Location:</label>
+        <input type="text" name='location' placeholder='your local'></input>
+        <br />
+        <label htmlFor='comment'>Comment:</label>
+        <br />
+        <textarea name='comment' placeholder='say what?'></textarea>
+        <br />
+        <button>Submit</button>   
+      </form>
+      <a href="/comments">Back to Comments</a>
+    </main>
+  )
 }
