@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 
 export const authOptions = {
+  // adapter: Prisma????
   providers: [
     GoogleProvider({
       clientID: process.env.Google_ID,
@@ -23,9 +24,10 @@ export const authOptions = {
         return user;
       }
     })
-  ], 
+  ],
+  // a secret is required to encrypt jason web getToken(jwt)
   secret: process.env.SECRET,
-  //encode using jason web tokens (jwt)
+  //session states that we will encode using json web tokens
   session: {
     strategy: 'jwt',
   },
@@ -45,6 +47,7 @@ export const authOptions = {
 //   // }
 // }
 
+//export auth options
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
