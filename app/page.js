@@ -1,5 +1,7 @@
+// "use client"
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+// import { signOut } from "next-auth/react"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -10,6 +12,7 @@ export default async function Home() {
       {/* renders session data for user after login */}
       <pre>{JSON.stringify(session)}</pre>
       <a href="/comments">comments</a>
+      {/* <button onClick = {()=> signOut()}>Sign Out</button> */}
     </main>
   )
 }

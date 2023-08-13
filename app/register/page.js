@@ -1,6 +1,7 @@
 // 'use client'
 import { matchEmail } from "@/lib/mongo/products";
 import { addUser } from "@/lib/mongo/products";
+import bcrypt from 'bcrypt';
 // import axios from "axios";
 
 export default async function RegisterPage () {
@@ -10,13 +11,15 @@ export default async function RegisterPage () {
     const name = formData.get('name');
     const email = formData.get('email');
     const password = formData.get('password');
+    //second param = salt (strength of the hash)
+    const hashedPassword = await bcrypt.hash(password, 10);
     const check = await matchEmail(email);
     // console.log(check)
     if(check !== email) {
       await addUser({
         name: name, 
         email: email, 
-        password: password
+        password: hashedPassword
       })
       console.log("User created");
       // alert("User created")
