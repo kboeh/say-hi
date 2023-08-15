@@ -72,6 +72,8 @@ export default function LoginPage () {
         <br />
         <button>Sign In</button>   
       </form>
+      <h1>Sign In to Google</h1>
+      <button onClick={()=> signIn('google')}>Sign In</button>
     </main>
   )
 }
