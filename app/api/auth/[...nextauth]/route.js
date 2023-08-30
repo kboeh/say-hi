@@ -9,7 +9,6 @@ import { matchEmail } from "@/lib/mongo/products";
 
 
 export const authOptions = {
-  // adapter: Prisma????
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
@@ -25,9 +24,7 @@ export const authOptions = {
       },
       //authentication/auth logic
       async authorize(credentials) {
-        // console.log(credentials.email);
         //check for email and passsword
-        // if (!credentials.email) {
         if (!credentials.email || !credentials.password) {
           console.log('Missing email or password')
           throw new Error ('Missing email or password')
@@ -35,7 +32,6 @@ export const authOptions = {
         //check database for user
         const user = await matchEmail(credentials.email);
         console.log(user.password)
-        // if (user === []) {
         if (!user || !user.password) {
           console.log('No user found')
           throw new Error ('No user found')
@@ -62,18 +58,6 @@ export const authOptions = {
   //will provide auth code errors
   debug: process.env.NODE_ENV === "development", 
 }
-
-// export const authOptions = {
-//   providers: [
-//     GoogleProvider({
-//       clientID: process.env.Google_ID,
-//       clientSecret: process.env.Google_SECRET
-//     }),
-//   ],  
-//   // pages: {
-//   //   login: '/login'
-//   // }
-// }
 
 //export auth options
 const handler = NextAuth(authOptions);

@@ -2,7 +2,6 @@
 import { matchEmail } from "@/lib/mongo/products";
 import { addUser } from "@/lib/mongo/products";
 import bcrypt from 'bcrypt';
-// import axios from "axios";
 
 export default async function RegisterPage () {
 
@@ -31,12 +30,7 @@ export default async function RegisterPage () {
 
     // console.log(matchEmail({ email: email}))
     // redirect('/comments');
-  }; 
-
-  // const registerUser = async (e) => {
-  //   e.preventDefault();
-  //   axios.post('/api/register', data)
-  // }
+  };
   
   return (
     <main>
